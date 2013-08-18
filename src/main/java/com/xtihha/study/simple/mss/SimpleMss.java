@@ -40,11 +40,12 @@ public class SimpleMss {
 					StringUtils.fromDate(bucket.getCreationDate()));
 		}
 
-		conn.createBucket(new CreateBucketRequest("test3", "region3"));
 		conn.deleteBucket("test3");
+		conn.createBucket(new CreateBucketRequest("test3", "region3"));
 		logger.info("create bucket test3 successfully");
+//		conn.deleteBucket("test3");
 
-		String bucketName = "test2";
+		String bucketName = "test3";
 		String key = "k1";
 		conn.putObject(new PutObjectRequest(bucketName, key, new File(
 				"/Users/meituan/.m2/settings.xml")));
@@ -53,6 +54,9 @@ public class SimpleMss {
 		conn.getObject(new GetObjectRequest(bucketName, key), new File(
 				"/Users/meituan/mss_download"));
 		logger.info("get object successfully");
+
+//		conn.deleteObject(bucketName, key);
+		logger.info("delete bucket({})'s key({}) successfully", bucketName, key);
 	}
 
 }
