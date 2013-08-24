@@ -22,14 +22,16 @@ public class ReentrantLockTry {
 
 	public void tryLock2() {
 		Lock lock = new ReentrantLock();
+		
 		lock.lock();
 		count++;
-
-		lock.lock();
-		count++;
+		{
+			lock.lock();
+			count++;
+			lock.unlock();
+		}
 		lock.unlock();
-
-		lock.unlock();
+		
 		System.out.println(count);
 	}
 
