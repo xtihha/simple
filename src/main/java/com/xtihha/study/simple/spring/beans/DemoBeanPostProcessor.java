@@ -4,7 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //needed, so spring can scan this compoent 
 public class DemoBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter {
 
     @Override
