@@ -17,4 +17,9 @@ public class Target {
     public void execute2() {
         logger.info("this is the original execute2 msg");
     }
+
+    @Intercept(intercept = true)
+    public void execute3() {
+        logger.info("this is the original execute3 msg");
+    }
 }
