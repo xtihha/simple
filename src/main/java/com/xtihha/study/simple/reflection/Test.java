@@ -8,24 +8,21 @@ public class Test<T, K> extends ClassA<T> {
 
     public static void main(String args[]) throws Exception {
 
-        System.out.println("======getSuperclass======:");
-        System.out.println(Test.class.getSuperclass().getName());
+        System.out.println("superclass: " + Test.class.getSuperclass().getName());
 
-        System.out.println("======getGenericSuperclass======:");
-        Type t = Test.class.getGenericSuperclass();
-        System.out.println(t);
+        Type type = Test.class.getGenericSuperclass();
+        System.out.println("genericSuperclass: " + type);
 
-        if (ParameterizedType.class.isAssignableFrom(t.getClass())) {
-            System.out.print("----------->getActualTypeArguments:");
-            for (Type t1 : ((ParameterizedType) t).getActualTypeArguments()) {
+        if (ParameterizedType.class.isAssignableFrom(type.getClass())) {
+            System.out.print("actualTypeArguments: ");
+            for (Type t1 : ((ParameterizedType) type).getActualTypeArguments()) {
                 System.out.print(t1 + ",");
             }
             System.out.println();
-            System.out.println("-----getOwnerType:");
-            System.out.println(((ParameterizedType) t).getOwnerType());
 
-            System.out.println("----getRawType");
-            System.out.println(((ParameterizedType) t).getRawType());
+            System.out.println("ownerType: " + ((ParameterizedType) type).getOwnerType());
+
+            System.out.println("rawType: " + ((ParameterizedType) type).getRawType());
         }
 
         for (TypeVariable<Class<Test>> variable : Test.class.getTypeParameters()) {

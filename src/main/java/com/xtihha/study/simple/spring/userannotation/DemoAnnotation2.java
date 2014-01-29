@@ -10,6 +10,7 @@ public class DemoAnnotation2 {
     @Config("123")
     private String name = "abc";
 
+    @Config("default department")
     private String dept;
 
     public void hello() {
